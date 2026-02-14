@@ -1,10 +1,30 @@
-# AWS AI BUILDER LAB: CRAFT WITH AI AND BUILD WITH AI
+# AWS AI BUILDER HACKATHON LAB: CRAFT WITH AI AND BUILD WITH AI
+## (Virtual Pet Store)
 
-## Virtual Pet Store - AI-Powered Infrastructure
-
-This project demonstrates a comprehensive AI-powered infrastructure deployment using modern cloud-native tools and best practices.
+AI-powered infrastructure deployment using modern cloud-native tools.
 
 ![Virtual Pet Store](screenshots/virtual-petstore-website.png)
+
+---
+
+## What Each Tool Does (Quick Reference)
+
+| Tool | What It Did | Simple Use Case |
+|------|-------------|-----------------|
+| **Strands Agent** | AWS AI agent framework | Handles pet store customer queries using AWS Bedrock |
+| **LangGraph Agent** | Graph-based AI workflows | Manages multi-step pet adoption process with state |
+| **LlamaIndex Agent** | Data indexing & retrieval | Searches pet database and returns relevant matches |
+| **Pulumi IaC** | Infrastructure as Code | Deploys all AWS resources with Python code |
+| **Pulumi ESC** | Secrets management | Stores AWS keys and API tokens securely |
+| **Pulumi Policy** | Compliance rules | Ensures all S3 buckets have required tags |
+| **Pulumi Deployments** | Drift detection | Checks every 6 hours if infrastructure changed |
+| **Amazon S3** | Object storage | Stores pet images and agent data files |
+| **CloudFront** | CDN delivery | Serves website globally with low latency |
+| **Secrets Manager** | Secret storage | Keeps Pulumi & LaunchDarkly API keys safe |
+| **IAM** | Access control | Controls who can access what resources |
+| **EC2** | Compute | Runs Coder workspace for development |
+| **Arize Phoenix** | AI observability | Traces AI agent calls to debug issues |
+| **LaunchDarkly** | Feature flags | Toggles features on/off without redeploying |
 
 ---
 
@@ -12,27 +32,27 @@ This project demonstrates a comprehensive AI-powered infrastructure deployment u
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│                        AWS AI BUILDER LAB PIPELINE                          │
+│                     AWS AI BUILDER HACKATHON PIPELINE                       │
 ├─────────────────────────────────────────────────────────────────────────────┤
 │                                                                             │
 │   ┌──────────────┐     ┌──────────────┐     ┌──────────────┐               │
 │   │   STRANDS    │     │  LANGGRAPH   │     │  LLAMAINDEX  │               │
 │   │    AGENT     │     │    AGENT     │     │    AGENT     │               │
+│   │  (Queries)   │     │ (Workflows)  │     │  (Search)    │               │
 │   └──────┬───────┘     └──────┬───────┘     └──────┬───────┘               │
 │          │                    │                    │                        │
 │          └────────────────────┼────────────────────┘                        │
 │                               ▼                                             │
 │                    ┌──────────────────┐                                     │
-│                    │   PULUMI IaC     │                                     │
-│                    │  (Python SDK)    │                                     │
+│                    │   PULUMI IaC     │  ← Deploys everything               │
+│                    │  (Python SDK)    │    with code                        │
 │                    └────────┬─────────┘                                     │
 │                             │                                               │
 │          ┌──────────────────┼──────────────────┐                            │
 │          ▼                  ▼                  ▼                            │
 │   ┌──────────────┐   ┌──────────────┐   ┌──────────────┐                   │
-│   │  Pulumi ESC  │   │   Pulumi     │   │   Pulumi     │                   │
-│   │ (Secrets &   │   │   Policy     │   │ Deployments  │                   │
-│   │   Config)    │   │   Packs      │   │(Drift Detect)│                   │
+│   │  Pulumi ESC  │   │   Policy     │   │ Deployments  │                   │
+│   │  (Secrets)   │   │   (Rules)    │   │  (Monitor)   │                   │
 │   └──────────────┘   └──────────────┘   └──────────────┘                   │
 │                             │                                               │
 │                             ▼                                               │
@@ -40,22 +60,15 @@ This project demonstrates a comprehensive AI-powered infrastructure deployment u
 │   │                         AWS SERVICES                                 │  │
 │   │  ┌─────────┐  ┌─────────┐  ┌─────────┐  ┌─────────┐  ┌─────────┐   │  │
 │   │  │   S3    │  │CloudFront│  │ Secrets │  │   IAM   │  │   EC2   │   │  │
-│   │  │ Buckets │  │   CDN   │  │ Manager │  │  Roles  │  │(Coder)  │   │  │
+│   │  │(Storage)│  │  (CDN)  │  │  (Keys) │  │ (Access)│  │(Compute)│   │  │
 │   │  └─────────┘  └─────────┘  └─────────┘  └─────────┘  └─────────┘   │  │
 │   └─────────────────────────────────────────────────────────────────────┘  │
 │                             │                                               │
 │                             ▼                                               │
 │                    ┌──────────────────┐                                     │
 │                    │  OBSERVABILITY   │                                     │
-│                    │  ┌────────────┐  │                                     │
-│                    │  │   Arize    │  │                                     │
-│                    │  │  Tracing   │  │                                     │
-│                    │  └────────────┘  │                                     │
-│                    │  ┌────────────┐  │                                     │
-│                    │  │LaunchDarkly│  │                                     │
-│                    │  │  Feature   │  │                                     │
-│                    │  │   Flags    │  │                                     │
-│                    │  └────────────┘  │                                     │
+│                    │  Arize (Traces)  │  ← Debug AI calls                   │
+│                    │  LaunchDarkly    │  ← Toggle features                  │
 │                    └──────────────────┘                                     │
 │                                                                             │
 └─────────────────────────────────────────────────────────────────────────────┘
@@ -63,47 +76,23 @@ This project demonstrates a comprehensive AI-powered infrastructure deployment u
 
 ---
 
-## AWS Services Used
-
-| Service | Purpose |
-|---------|---------|
-| **Amazon S3** | Storage buckets for each AI agent (strands, langgraph, llamaindex) |
-| **Amazon CloudFront** | CDN for hosting the Virtual Pet Store website |
-| **AWS Secrets Manager** | Secure storage for API keys (Pulumi, LaunchDarkly) |
-| **Amazon EC2** | Coder workspace hosting for development |
-| **AWS IAM** | Identity and access management for services |
-
----
-
-## Project Components
-
-### 1. Pulumi Infrastructure as Code
-- **Organization**: `Dhrumilshah77-org`
-- **Project**: `virtual-petstore`
-- **Runtime**: Python
-
-### 2. AI Agent Stacks
-| Stack | Agent Type | Resources |
-|-------|------------|-----------|
-| `strands-agent-dev` | Strands | S3 Bucket with tags |
-| `langgraph-agent-dev` | LangGraph | S3 Bucket with tags |
-| `llamaindex-agent-dev` | LlamaIndex | S3 Bucket with tags |
-
-### 3. Pulumi Features Implemented
-- **ESC (Environments, Secrets, Configuration)**: `default/petstore-env`
-- **Policy Packs**: `petstore-policy` - Enforces Environment tags on S3 buckets
-- **Drift Detection**: Scheduled refresh every 6 hours
-- **Stack Configuration**: Per-stack config values for agent types
-
-### 4. Coder Templates
-- `petstore-pulumi-launchdarkly` - Pulumi + LaunchDarkly integration
-- `petstore-arize-llamaindex` - Arize + LlamaIndex MCP servers
-
----
-
 ## Hosted Website
 
 **Virtual Pet Store**: https://d15amxqcyx00y1.cloudfront.net/
+
+---
+
+## Pulumi Configuration
+
+| Setting | Value |
+|---------|-------|
+| **Organization** | `Dhrumilshah77-org` |
+| **Project** | `virtual-petstore` |
+| **Strands Stack** | `strands-agent-dev` |
+| **LangGraph Stack** | `langgraph-agent-dev` |
+| **LlamaIndex Stack** | `llamaindex-agent-dev` |
+| **ESC Environment** | `default/petstore-env` |
+| **Policy Pack** | `petstore-policy` |
 
 ---
 
@@ -117,33 +106,11 @@ This project demonstrates a comprehensive AI-powered infrastructure deployment u
 
 ---
 
-## Tech Stack
-
-| Category | Technology |
-|----------|------------|
-| **Infrastructure** | Pulumi (Python SDK) |
-| **Cloud Provider** | AWS |
-| **AI Frameworks** | LlamaIndex, LangGraph, Strands |
-| **Observability** | Arize Phoenix |
-| **Feature Flags** | LaunchDarkly |
-| **Development** | Coder Workspaces |
-| **MCP Servers** | Arize, LlamaIndex |
-
----
-
 ## Quick Start
 
 ```bash
-# Install dependencies
 pip install pulumi pulumi-aws
-
-# Select a stack
 pulumi stack select strands-agent-dev
-
-# Preview changes
-pulumi preview --policy-pack ../policy-pack
-
-# Deploy
 pulumi up --yes
 ```
 
@@ -152,29 +119,14 @@ pulumi up --yes
 ## Project Structure
 
 ```
-pulumi-petstore/
-├── __main__.py                          # Main Pulumi program
-├── Pulumi.yaml                          # Project configuration
-├── Pulumi.strands-agent-dev.yaml        # Strands stack config
-├── Pulumi.langgraph-agent-dev.yaml      # LangGraph stack config
-├── Pulumi.llamaindex-agent-dev.yaml     # LlamaIndex stack config
-├── Pulumi.*.deploy.yaml                 # Deployment settings
-├── requirements.txt                     # Python dependencies
-├── screenshots/                         # Project screenshots
-│   ├── virtual-petstore-website.png
-│   └── pulumi-stack-overview.png
-└── README.md                            # This file
-
-policy-pack/
-├── __main__.py                          # Policy definitions
-├── PulumiPolicy.yaml                    # Policy pack config
-└── requirements.txt                     # Policy dependencies
+├── __main__.py           # Main infrastructure code
+├── Pulumi.yaml           # Project config
+├── Pulumi.*.yaml         # Stack configs
+├── policy-pack/          # Compliance policies
+├── screenshots/          # Project images
+└── docs/                 # Architecture diagrams
 ```
 
 ---
 
-## Author
-
-Built with AI assistance during the **AWS AI Builder Lab** hackathon.
-
-**Date**: February 2026
+**Built at AWS AI Builder Hackathon | February 2026**
