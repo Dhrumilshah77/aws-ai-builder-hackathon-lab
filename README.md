@@ -82,17 +82,15 @@ AI-powered infrastructure deployment using modern cloud-native tools.
 
 ---
 
-## Pulumi Configuration
+## AWS Services Used
 
-| Setting | Value |
-|---------|-------|
-| **Organization** | `Dhrumilshah77-org` |
-| **Project** | `virtual-petstore` |
-| **Strands Stack** | `strands-agent-dev` |
-| **LangGraph Stack** | `langgraph-agent-dev` |
-| **LlamaIndex Stack** | `llamaindex-agent-dev` |
-| **ESC Environment** | `default/petstore-env` |
-| **Policy Pack** | `petstore-policy` |
+| Service | Purpose | What It Did |
+|---------|---------|-------------|
+| **Amazon S3** | Object Storage | Stores pet images, agent data, and static assets |
+| **Amazon CloudFront** | CDN | Delivers website globally with low latency |
+| **AWS Secrets Manager** | Secret Storage | Securely stores API keys for Pulumi & LaunchDarkly |
+| **AWS IAM** | Access Control | Manages permissions for all AWS resources |
+| **Amazon EC2** | Compute | Hosts Coder workspace for development |
 
 ---
 
