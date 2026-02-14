@@ -1,0 +1,6 @@
+config:
+  aws:region: us-west-2
+  virtual-petstore:environment: production
+  virtual-petstore:agentType: langgraph
+environment:
+  - default/petstore-env

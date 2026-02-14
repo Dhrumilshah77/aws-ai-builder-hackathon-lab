@@ -1,0 +1,6 @@
+settings:
+  operationType: update
+  schedules:
+    drift:
+      cron: "0 */6 * * *"
+      enabled: true

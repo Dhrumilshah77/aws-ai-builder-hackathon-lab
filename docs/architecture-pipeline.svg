@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 700">
+  <defs>
+    <linearGradient id="awsGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF9900;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FF6600;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="pulumiGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8A3FFC;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#6929C4;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="aiGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00D4AA;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00A884;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="700" fill="#1a1a2e"/>
+
+  <!-- Title -->
+  <text x="450" y="40" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">AWS AI BUILDER LAB PIPELINE</text>
+
+  <!-- AI Agents Section -->
+  <rect x="50" y="70" width="800" height="100" rx="10" fill="#16213e" stroke="#00D4AA" stroke-width="2"/>
+  <text x="450" y="95" font-family="Arial, sans-serif" font-size="14" fill="#00D4AA" text-anchor="middle">AI AGENTS</text>
+
+  <!-- Agent boxes -->
+  <rect x="100" y="110" width="150" height="50" rx="8" fill="url(#aiGrad)"/>
+  <text x="175" y="140" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#fff" text-anchor="middle">STRANDS AGENT</text>
+
+  <rect x="375" y="110" width="150" height="50" rx="8" fill="url(#aiGrad)"/>
+  <text x="450" y="140" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#fff" text-anchor="middle">LANGGRAPH AGENT</text>
+
+  <rect x="650" y="110" width="150" height="50" rx="8" fill="url(#aiGrad)"/>
+  <text x="725" y="140" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#fff" text-anchor="middle">LLAMAINDEX AGENT</text>
+
+  <!-- Arrows from agents -->
+  <path d="M175 160 L175 190 L450 190 L450 220" stroke="#00D4AA" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <path d="M450 160 L450 220" stroke="#00D4AA" stroke-width="2" fill="none"/>
+  <path d="M725 160 L725 190 L450 190" stroke="#00D4AA" stroke-width="2" fill="none"/>
+
+  <!-- Pulumi Section -->
+  <rect x="300" y="220" width="300" height="80" rx="10" fill="url(#pulumiGrad)"/>
+  <text x="450" y="250" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#fff" text-anchor="middle">PULUMI IaC</text>
+  <text x="450" y="275" font-family="Arial, sans-serif" font-size="12" fill="#fff" text-anchor="middle">Infrastructure as Code (Python SDK)</text>
+
+  <!-- Pulumi Features -->
+  <rect x="50" y="330" width="250" height="70" rx="8" fill="#16213e" stroke="#8A3FFC" stroke-width="2"/>
+  <text x="175" y="355" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#8A3FFC" text-anchor="middle">PULUMI ESC</text>
+  <text x="175" y="375" font-family="Arial, sans-serif" font-size="10" fill="#ccc" text-anchor="middle">Secrets &amp; Configuration</text>
+  <text x="175" y="390" font-family="Arial, sans-serif" font-size="9" fill="#888" text-anchor="middle">default/petstore-env</text>
+
+  <rect x="325" y="330" width="250" height="70" rx="8" fill="#16213e" stroke="#8A3FFC" stroke-width="2"/>
+  <text x="450" y="355" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#8A3FFC" text-anchor="middle">POLICY PACKS</text>
+  <text x="450" y="375" font-family="Arial, sans-serif" font-size="10" fill="#ccc" text-anchor="middle">Compliance &amp; Governance</text>
+  <text x="450" y="390" font-family="Arial, sans-serif" font-size="9" fill="#888" text-anchor="middle">petstore-policy</text>
+
+  <rect x="600" y="330" width="250" height="70" rx="8" fill="#16213e" stroke="#8A3FFC" stroke-width="2"/>
+  <text x="725" y="355" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#8A3FFC" text-anchor="middle">DEPLOYMENTS</text>
+  <text x="725" y="375" font-family="Arial, sans-serif" font-size="10" fill="#ccc" text-anchor="middle">Drift Detection</text>
+  <text x="725" y="390" font-family="Arial, sans-serif" font-size="9" fill="#888" text-anchor="middle">Scheduled Refresh</text>
+
+  <!-- Arrows to Pulumi features -->
+  <path d="M450 300 L450 320 L175 320 L175 330" stroke="#8A3FFC" stroke-width="2" fill="none"/>
+  <path d="M450 300 L450 330" stroke="#8A3FFC" stroke-width="2" fill="none"/>
+  <path d="M450 300 L450 320 L725 320 L725 330" stroke="#8A3FFC" stroke-width="2" fill="none"/>
+
+  <!-- AWS Services Section -->
+  <rect x="50" y="430" width="800" height="120" rx="10" fill="#16213e" stroke="#FF9900" stroke-width="2"/>
+  <text x="450" y="455" font-family="Arial, sans-serif" font-size="14" fill="#FF9900" text-anchor="middle">AWS SERVICES</text>
+
+  <!-- AWS Service boxes -->
+  <rect x="70" y="470" width="120" height="60" rx="6" fill="url(#awsGrad)"/>
+  <text x="130" y="495" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#fff" text-anchor="middle">Amazon S3</text>
+  <text x="130" y="515" font-family="Arial, sans-serif" font-size="9" fill="#fff" text-anchor="middle">Storage Buckets</text>
+
+  <rect x="210" y="470" width="120" height="60" rx="6" fill="url(#awsGrad)"/>
+  <text x="270" y="495" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#fff" text-anchor="middle">CloudFront</text>
+  <text x="270" y="515" font-family="Arial, sans-serif" font-size="9" fill="#fff" text-anchor="middle">CDN</text>
+
+  <rect x="350" y="470" width="120" height="60" rx="6" fill="url(#awsGrad)"/>
+  <text x="410" y="495" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#fff" text-anchor="middle">Secrets Mgr</text>
+  <text x="410" y="515" font-family="Arial, sans-serif" font-size="9" fill="#fff" text-anchor="middle">API Keys</text>
+
+  <rect x="490" y="470" width="120" height="60" rx="6" fill="url(#awsGrad)"/>
+  <text x="550" y="495" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#fff" text-anchor="middle">IAM</text>
+  <text x="550" y="515" font-family="Arial, sans-serif" font-size="9" fill="#fff" text-anchor="middle">Access Control</text>
+
+  <rect x="630" y="470" width="120" height="60" rx="6" fill="url(#awsGrad)"/>
+  <text x="690" y="495" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#fff" text-anchor="middle">EC2</text>
+  <text x="690" y="515" font-family="Arial, sans-serif" font-size="9" fill="#fff" text-anchor="middle">Coder Workspace</text>
+
+  <rect x="770" y="470" width="60" height="60" rx="6" fill="url(#awsGrad)"/>
+  <text x="800" y="505" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#fff" text-anchor="middle">...</text>
+
+  <!-- Arrow to AWS -->
+  <path d="M450 400 L450 430" stroke="#FF9900" stroke-width="2" fill="none"/>
+
+  <!-- Observability Section -->
+  <rect x="250" y="580" width="400" height="100" rx="10" fill="#16213e" stroke="#00D4AA" stroke-width="2"/>
+  <text x="450" y="605" font-family="Arial, sans-serif" font-size="14" fill="#00D4AA" text-anchor="middle">OBSERVABILITY &amp; FEATURE MANAGEMENT</text>
+
+  <rect x="280" y="620" width="150" height="45" rx="6" fill="#2d4a3e"/>
+  <text x="355" y="640" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#00D4AA" text-anchor="middle">Arize Phoenix</text>
+  <text x="355" y="655" font-family="Arial, sans-serif" font-size="9" fill="#888" text-anchor="middle">AI Tracing &amp; Monitoring</text>
+
+  <rect x="470" y="620" width="150" height="45" rx="6" fill="#2d3a4e"/>
+  <text x="545" y="640" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#4A90D9" text-anchor="middle">LaunchDarkly</text>
+  <text x="545" y="655" font-family="Arial, sans-serif" font-size="9" fill="#888" text-anchor="middle">Feature Flags</text>
+
+  <!-- Arrow to Observability -->
+  <path d="M450 550 L450 580" stroke="#00D4AA" stroke-width="2" fill="none"/>
+</svg>

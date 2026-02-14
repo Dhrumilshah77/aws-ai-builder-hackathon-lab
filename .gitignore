@@ -1,0 +1,15 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+venv/
+.env
+
+# Pulumi
+*.pyc
+.pulumi/
+
+# IDE
+.vscode/
+.idea/
